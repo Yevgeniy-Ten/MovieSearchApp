@@ -8,4 +8,3 @@ export const getRequest = (uri = "") => {
     return instanse.get(uri)
 }
 export default instanse
-// /shows/:id информация по одному конкретному сериалу
