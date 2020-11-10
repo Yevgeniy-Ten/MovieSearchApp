@@ -1,5 +1,4 @@
 import React, {useEffect, useReducer} from "react";
-import Loader from "../../components/Loader/Loader";
 import KinoCard from "../../components/KinoCard/KinoCard";
 import {getRequest} from "../KinoPoisk/instanse";
 import {kinoInfoReducer} from "./kinoInfoReducer";
@@ -27,7 +26,6 @@ const KinoInfo = (props) => {
     const setNewShowedMovie = (movie) => dispatch(newShowedMovie(movie))
     return (
         <>
-            <Loader/>
             {
                 Object.keys(movie).length && <KinoCard movie={movie}/>
             }
