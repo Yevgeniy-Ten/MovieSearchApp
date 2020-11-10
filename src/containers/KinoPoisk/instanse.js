@@ -9,4 +9,3 @@ export const getRequest = (uri = "") => {
 }
 export default instanse
 // /shows/:id информация по одному конкретному сериалу
-// /search/shows?q=:query для короче ну один символ ввёл и совпадения пришли

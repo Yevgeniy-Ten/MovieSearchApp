@@ -4,9 +4,11 @@ import {useApp} from "../../containers/App/AppContext";
 
 const Loader = () => {
     const state = useApp()
-    if (!state.loading) return null
+    if (!state.state.loading) return null
     return (
-        <Spinner animation="border" variant="info"/>
+        <div className="d-flex justify-content-center align-items-center" style={{height: "100px"}}>
+            <Spinner animation="border" variant="success"/>
+        </div>
     );
 };
 

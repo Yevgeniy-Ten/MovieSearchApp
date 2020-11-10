@@ -2,7 +2,7 @@ import {
     HIDE_ALERT,
     HIDE_LOAD,
     KINO_DROPDOWN_HIDE,
-    KINO_DROPDOWN_OPEN, NEW_TVShows,
+    KINO_DROPDOWN_OPEN, NEW_SHOWED_KINO, NEW_TVShows,
     SEARCH_INPUT_CHANGE,
     SHOW_ALERT,
     SHOW_LOAD
@@ -32,4 +32,7 @@ export const searchInputChange = (payload) => ({
 })
 export const newTVShows = (shows) => ({
     type: NEW_TVShows, payload: shows.map(show => show.show)
+})
+export const newShowedMovie = (payload) => ({
+    type: NEW_SHOWED_KINO, payload
 })

@@ -2,6 +2,7 @@ import React, {useEffect, useReducer} from "react";
 import {Switch, Route, Redirect} from "react-router-dom"
 import KinoPoiskForm from "../../components/KinoPoiskForm/KinoPoiskForm";
 import KinoList from "../../components/KinoList/KinoList";
+import KinoInfo from "../KinoInfo/KinoInfo";
 import {kinoPoiskReducer} from "./kinoPoiskReducer";
 import {showDropdown, hideDropdown, searchInputChange, newTVShows} from "../actionCreators";
 import {getRequest} from "./instanse";
@@ -18,6 +19,7 @@ const KinoPoisk = () => {
     const [state, dispatch] = useReducer(kinoPoiskReducer, initialState)
     useEffect(() => {
         getTVShowsByInputVal(state.searchInputVal).then(setNewTVShows)
+        // eslint-disable-next-line
     }, [state.searchInputVal])
     const getTVShowsByInputVal = async (val = "") => {
         const validSearch = val.length >= 2
@@ -47,7 +49,14 @@ const KinoPoisk = () => {
                            onDropDown={onDropDown}
                            inputVal={state.searchInputVal}
                            onChange={onChangeSearchInput}/>
-            {state.dropdownShow && <KinoList prefix={state.searchInputVal} shows={state.tvShows}/>}
+            {state.dropdownShow &&
+            <KinoList offDropDown={offDropDown}
+                      prefix={state.searchInputVal}
+                      shows={state.tvShows}/>}
+            <Switch>
+                <Route path="/shows/:id" component={KinoInfo}/>
+                <Redirect from="" to="/"/>
+            </Switch>
         </>
     )
 }
