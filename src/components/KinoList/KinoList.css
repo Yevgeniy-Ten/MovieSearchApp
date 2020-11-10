@@ -1,0 +1,5 @@
+.Kinolist {
+    max-height: 200px;
+    overflow-y: auto;
+    transform: translateY(-10px);
+}
